@@ -1,13 +1,11 @@
-#include <unistd.h>
-
 void	ft_print_alphabet(void)
 {
-	char	letter;
+	char	c;
 
-	letter = 'a';
-	while (letter <= 'z')
+	c = 'a';
+	while (c <= 'z')
 	{
-		write(1, &letter, 1);
-		letter++;
+		ft_putchar(c);
+		c++;
 	}
 }
