@@ -1,0 +1,29 @@
+#include <unistd.h>
+
+void	print_comb(char *tab, int pos, int n, char start)
+{
+	char	digit;
+
+	if (pos == n)
+	{
+		write(1, tab, n);
+		if (tab[0] != '0' + (10 - n))
+			write(1, ", ", 2);
+		return;
+	}
+	digit = start;
+	while (digit <= '9' - (n - pos - 1))
+	{
+		tab[pos] = digit;
+		print_comb(tab, pos + 1, n, digit + 1);
+		digit++;
+	}
+}
+
+void	ft_print_combn(int n)
+{
+	char	tab[9];
+
+	if (n > 0 && n < 10)
+		print_comb(tab, 0, n, '0');
+}
